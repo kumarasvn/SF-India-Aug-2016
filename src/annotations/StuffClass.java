@@ -2,10 +2,10 @@ package annotations;
 
 //@DoStuff
 public class StuffClass {
-    @SetMe
+    @SetMe("my name")
     private String name;
     
-    @SetMe
+    @SetMe("my address")
     private String address;
     
     private String unset = "not set";

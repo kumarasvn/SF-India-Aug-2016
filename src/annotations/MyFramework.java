@@ -31,14 +31,15 @@ public class MyFramework {
                         m.invoke(sc);
                     }
                 }
-                Field [] fields = clazz.getDeclaredFields();
+                Field[] fields = clazz.getDeclaredFields();
                 for (Field f : fields) {
                     System.out.println("Found field " + f);
                     SetMe sm = f.getAnnotation(SetMe.class);
                     if (sm != null) {
+                        String toSet = sm.value();
                         System.out.println("Annotated!");
                         f.setAccessible(true);
-                        f.set(sc, "New value set by framework");
+                        f.set(sc, toSet);
                     }
                 }
                 System.out.println("Object after setting is " + sc.toString());

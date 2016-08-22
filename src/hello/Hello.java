@@ -4,7 +4,7 @@ import annotations.DoStuff;
 import annotations.SetMe;
 
 public class Hello {
-    @SetMe
+    @SetMe(value="The value of the String to be set", moreinfo="irrelevant")
     private String name = "Unset";
     
     @DoStuff
