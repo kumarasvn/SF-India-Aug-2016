@@ -2,9 +2,14 @@ package annotations;
 
 //@DoStuff
 public class StuffClass {
-//    @DoStuff
+    @SetMe
     private String name;
     
+    @SetMe
+    private String address;
+    
+    private String unset = "not set";
+            
     @DoStuff
     public void runThisPlease() {
         System.out.println("Hello, this is runThisPlease");
@@ -17,5 +22,10 @@ public class StuffClass {
     @DoStuff
     private void doThisOneToo() {
         System.out.println("This should also show up...");
+    }
+
+    @Override
+    public String toString() {
+        return "StuffClass{" + "name=" + name + ", address=" + address + ", unset=" + unset + '}';
     }
 }
