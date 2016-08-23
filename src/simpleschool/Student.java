@@ -1,6 +1,9 @@
 package simpleschool;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 import java.util.Objects;
 
 public class Student {
@@ -9,6 +12,7 @@ public class Student {
     private String address;
     private String major;
     private float gpa;
+    private List<String> courses;
 
     public String getName() {
         return name;
@@ -28,6 +32,10 @@ public class Student {
 
     public float getGpa() {
         return gpa;
+    }
+
+    public List<String> getCourses() {
+        return Collections.unmodifiableList(courses);
     }
 
     private Student() {
@@ -70,13 +78,15 @@ public class Student {
         }
     }
 
-    public static Student newStudent(String name, String address, String major, float gpa) {
+    public static Student newStudent(String name, String address, String major, float gpa,
+            String ... courses) {
         validate(name, address, major, gpa);
         Student self = new Student();
         self.name = name;
         self.address = address;
         self.major = major;
         self.gpa = gpa;
+        self.courses = Arrays.asList(courses);
         return self;
     }
 
